@@ -55,7 +55,7 @@ Solucion
 y -> %L0
 
 LD %L0, 40*4, %L1
-ADD %L1, 1,  %L1
+ADD %L1, 13,  %L1
 ST %L1, %L0, 0*4
 
 5. Convertir a lenguaje de maquina.
@@ -108,18 +108,15 @@ a. n=-12
 Solucion
 
 OR %G0, -12, %L0
-OR %G0, %L0, %O0
 
 b. a=-11
 
 Solucion
 
 OR %G0, -11, %L1
-OR %G0, %L1, %O1
 
 c. b=-14
 
 Solucion
 
 OR %G0, -14, %L2
-OR %G0, %L2, %O2
