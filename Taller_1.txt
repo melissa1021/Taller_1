@@ -24,9 +24,9 @@ X -> %L0
 Y -> %L1
 Z -> %L2
 
-ADD %G0, 0, %L0
-ADD %G0, 8, %L1
-ADD %G0, 1, %L2
+OR %G0, 0, %L0
+OR %G0, 8, %L1
+OR %G0, 1, %L2
 
 ADD %L0, 3, %L1
 ADD %L2, 3, %L2
@@ -72,8 +72,8 @@ Solucion
 i -> %L0
 p -> %L1
 
-ADD %G0, 3, %L0
-ADD %G0, 2, %L1
+OR %G0, 3, %L0
+OR %G0, 2, %L1
 ADD %L0, 3, %O0
 
 b.
@@ -91,10 +91,10 @@ x -> %L1
 z -> %L2
 w -> %L3
 
-ADD %G0, 3 %L0
-ADD %GO, 1, %L1
-ADD %GO, 4, %L1
-ADD %GO, 0, %L3
+OR %G0, 3 %L0
+OR %GO, 1, %L1
+OR %GO, 4, %L1
+OR %GO, 0, %L3
 
 ADD %L0, 40, %L0
 SUB %L1, %L2, %L1
