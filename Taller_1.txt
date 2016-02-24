@@ -45,7 +45,7 @@ a -> %L0
 x -> %L1
 
 LD %L0, 2*4, %L2
-ADD %L1, %L2,  %L1
+ADD %L1, %L2, %L1
 ST %L1, %L0, 4*4
 
 b. y[0] = y[40]+13;
@@ -55,7 +55,7 @@ Solucion
 y -> %L0
 
 LD %L0, 40*4, %L1
-ADD %L1, 13,  %L1
+ADD %L1, 13, %L1
 ST %L1, %L0, 0*4
 
 5. Convertir a lenguaje de maquina.
@@ -72,9 +72,11 @@ Solucion
 i -> %L0
 p -> %L1
 
-OR %G0, 3, %L0
-OR %G0, 2, %L1
-ADD %L0, 3, %O0
+Lenguaje de Bajo nival         Lenguaje de Maquina                        Hexagesimal 
+
+OR %G0, 3, %L0                 10 11000 000010 00000 1 0000000000011      B 0 1 0 2 0 0 3
+OR %G0, 2, %L1                 10 11001 000010 00000 1 0000000000010      B 2 1 0 2 0 0 2
+ADD %L0, 3, %O0                10 01000 000000 11000 1 0000000000011      9 0 0 6 2 0 0 3 
 
 b.
 int main(){
@@ -91,15 +93,17 @@ x -> %L1
 z -> %L2
 w -> %L3
 
-OR %G0, 3 %L0
-OR %GO, 1, %L1
-OR %GO, 4, %L1
-OR %GO, 0, %L3
+Lenguaje de Bajo nival         Lenguaje de Maquina                         Hexagesimal
 
-ADD %L0, 40, %L0
-SUB %L1, %L2, %L1
-ADD %L0, %L1, %L3
-ADD %G0, 0, O0
+OR %G0, 3 %L0                  10 11000 000010 00000 1 0000000000011       B 0 1 0 2 0 0 3
+OR %GO, 1, %L1                 10 11001 000010 00000 1 0000000000001       B 2 1 0 2 0 0 1
+OR %GO, 4, %L2                 10 11010 000010 00000 1 0000000000100       B 4 1 0 2 0 0 4
+OR %GO, 0, %L3                 10 11011 000010 00000 1 0000000000000       B 6 1 0 2 0 0 0
+
+ADD %L0, 40, %L0               10 11000 000000 11000 1 0000000010100       B 0 0 6 2 0 1 4
+SUB %L1, %L2, %L1              10 11001 000100 11001 0 00000000 11010      B 2 2 6 4 0 1 A
+ADD %L0, %L1, %L3              10 11011 000000 11000 0 00000000 11011      B 6 0 6 0 0 1 B
+ADD %G0, 0, %O0                10 01000 000000 00000 1 0000000000000       9 0 0 0 2 0 0 0 
 
 6. Inicializar las siguientes variables negativas usando OR.
 
