@@ -72,7 +72,7 @@ Solucion
 i -> %L0
 p -> %L1
 
-Lenguaje de Bajo nival         Lenguaje de Maquina                        Hexadesimal 
+Lenguaje de Bajo nival         Lenguaje de Maquina                        Hexadecimal 
 
 OR %G0, 3, %L0                 10 11000 000010 00000 1 0000000000011      B 0 1 0 2 0 0 3
 OR %G0, 2, %L1                 10 11001 000010 00000 1 0000000000010      B 2 1 0 2 0 0 2
@@ -93,7 +93,7 @@ x -> %L1
 z -> %L2
 w -> %L3
 
-Lenguaje de Bajo nival         Lenguaje de Maquina                         Hedagesimal
+Lenguaje de Bajo nival         Lenguaje de Maquina                         Hedagecimal
 
 OR %G0, 3 %L0                  10 11000 000010 00000 1 0000000000011       B 0 1 0 2 0 0 3
 OR %GO, 1, %L1                 10 11001 000010 00000 1 0000000000001       B 2 1 0 2 0 0 1
