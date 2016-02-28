@@ -1,0 +1,51 @@
+Ejercicio propuesto en clase
+
+int main () {
+   int p=3, h[300], b[40];
+   h[10] = 3;
+   b[4] = -1;
+   h[20] = b[4] + h[10] + p;
+   return 0;
+}
+
+
+Solucion:
+
+p -> %L0
+h -> %L1
+B -> %L2
+
+Lenguaje de Bajo nival         Lenguaje de Maquina                        Hexadecimal 
+
+// Se inicializa la variable p
+OR %G0, 3, %L0                 10 11000 000010 00000 1 0000000000011      B 0 1 0 2 0 0 3
+
+// Se inivializa el vector h donde inicia
+OR %G0, 0, %L1                 10 11001 000010 00000 1 0000000000000      B 2 1 0 2 0 0 0
+
+//Se inicializa el vector b donde inicia
+OR %G0, 1200, %L2              10 11010 000010 00000 1 0010010110000      B 4 1 0 2 4 B 0
+
+//Cargo el valor 3 (%L3) en un registro local
+OR %GO, 3, %L3                 10 11011 000010 00000 1 0000000000011      B 6 1 0 2 0 0 3
+
+//Guado el valor 3 en el espacio de memoria del vector h en la posicion 10*4=40
+ST %L3, %L1, 40                11 11011 000100 11001 1 0000000101000      F 6 2 6 6 0 2 8
+
+//Cargo el valor -1 en un registro local
+OR %G0, -1, %L4                10 11100 000010 00000 1 1111111111110      B 8 1 0 3 F F E
+
+//Guado el valor -1 (%L4) en el espacio de memoria del vector b en la posicion 4*4=16
+ST %L4, %L2, 16                11 11100 000100 11010 1 0000000010000      F 8 2 6 A 0 1 0
+
+//Sumo b[4] (%L4) y h[10] (%L3) y lo guardo en un registro local %L3
+ADD %L4, %L3, %L3              10 11011 000000 11100 0 00000000 11011     B 6 0 7 0 0 1 B
+
+//Sumo el resultado anterior (%L3) y p (%L0) y lo guardo en un registro local %L3
+ADD %L3, %L0, %L3              10 11011 000000 11011 0 00000000 11000     B 6 0 6 C 0 1 8
+
+// Guardo el serultado en el vector h en la posicion 20*4=80
+ST %L3, %L1, 80                11 11011 000100 11011 1 0000001010000      F 6 2 6 E 0 5 0
+
+//Inicializo la variable de salida %O0 con valor = 0 para el return
+OR %GO, 0, %O0                 10 01000 000010 00000 1 0000000000000      9 0 1 0 2 0 0 0
