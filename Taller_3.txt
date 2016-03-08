@@ -41,15 +41,15 @@ Solucion:
 i -> %L0
 b -> %L1
 
-0 X 0 0 0 0 | MOV 15, %L0
-0 X 0 0 0 4 | MOV 33, %L1
+0 X 0 0 0 0 | MOV 15, %L0 			--> OR %L0, %G0, 15
+0 X 0 0 0 4 | MOV 33, %L1 			--> OR %L1, %G0, 33
 0 X 0 0 0 8 | SUB %L0, -135, %L2
 0 X 0 0 0 C | SUB 12, %L1, %L3
-0 X 0 0 1 0 | CMP %L2, %L3
-0 X 0 0 1 4 | BL a SALTO1
-0 X 0 0 1 8 | SLL %L0, 4, %O0
-0 X 0 0 1 C | BA a EXIT
+0 X 0 0 1 0 | CMP %L2, %L3 			--> SUBCC %L2, %L3, %G0 
+0 X 0 0 1 4 | BLE , a SALTO1
+0 X 0 0 1 8 | SLL %L0, 2, %O0
+0 X 0 0 1 C | BA , a EXIT
 SALTO1
-0 X 0 1 0 0 | MOV 4 %O1
+0 X 0 1 0 0 | MOV 4 %O1				--> OR 4, %G0, %01
 EXIT
 0 X 0 1 0 4 | NOP 
